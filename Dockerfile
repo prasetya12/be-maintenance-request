@@ -13,11 +13,16 @@ RUN npm install
 # Copy the entire project (including TypeScript files)
 COPY . .
 
+# Generate Prisma Client
+RUN npx prisma generate
+
+# Run Prisma migrations
+RUN npx prisma migrate deploy
+
 # Build TypeScript
 RUN npm run build
 
-# Run Prisma migrations and seed
-RUN npx prisma migrate deploy
+# Run Prisma seed after build
 RUN npx prisma db seed
 
 # Use a smaller Node.js runtime image for production
