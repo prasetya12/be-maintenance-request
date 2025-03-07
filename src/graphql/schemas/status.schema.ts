@@ -1,12 +1,14 @@
 import { buildSchema } from "graphql";
 
-export const statusSchema = buildSchema(`
+const statusSchema = buildSchema(`
   type Status {
     id: Int!
     name: String!
   }
 
   type Query {
-    getstatus: [Status!]!
+    getStatus: [Status!]!
   }
 `);
+
+export default statusSchema

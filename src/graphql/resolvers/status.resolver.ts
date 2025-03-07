@@ -1,9 +1,8 @@
-// import { statusRepository } from "../../infrastructure/prisma/statusRepo";
-import statusUsecase from "../../application/usecase/status.usecase";
+import getStatus from "../../application/usecase/status/get-status.usecase";
 
-export const statusResolvers = {
+const statusResolvers = {
     Query: {
-        getstatus: async () => await statusUsecase.execute(),
+        getStatus: async () => await getStatus.execute(),
     },
 
     // createStatus: async ({ name }: { name: string }) => 
