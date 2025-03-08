@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+require("./src/infrastructure/job/escalation.job");
 
 const app: Application = express();
 app.use(cors());

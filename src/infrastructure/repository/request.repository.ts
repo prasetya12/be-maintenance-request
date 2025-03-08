@@ -25,6 +25,11 @@ class RequestRepository {
                 status: true,
                 urgency: true,
             },
+            orderBy: [
+                { statusId: 'asc' },
+                { createdAt: 'desc' },
+
+            ]
         });
 
         return requests
@@ -45,6 +50,10 @@ class RequestRepository {
                 urgency: true,
             },
         })
+    }
+
+    async updateUrgencyById(id: string, urgencyId: number) {
+        return await prisma.request.update({ where: { id }, data: { urgencyId: urgencyId } });
     }
 
     async markAsResolve(id: string): Promise<RequestEntity> {
@@ -109,9 +118,16 @@ class RequestRepository {
             },
         })
 
-        console.log(response)
 
         return response
+    }
+
+    async getRequestOpen() {
+        const requests = await prisma.request.findMany({
+            where: { resolvedAt: null }
+        });
+
+        return requests
     }
 
 

@@ -2,6 +2,7 @@ import requestRepository from "../../../infrastructure/repository/request.reposi
 class GetStatsUseCase {
     async execute() {
         const totalOpenRequest = await requestRepository.openRequests()
+        console.log(totalOpenRequest, 'a')
         const totalResolutionTime = await requestRepository.totalResolutionTime()
         const totalUrgentRequst = await requestRepository.urgentRequest()
 
