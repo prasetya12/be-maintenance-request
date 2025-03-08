@@ -3,10 +3,12 @@ import updateRequestUsecase from "../../application/usecase/request/update-reque
 import MarkAsResolveUseCase from "../../application/usecase/request/markasresolve.request";
 import getStatsUsecase from "../../application/usecase/request/get-stats.usecase";
 import getRequestUsecase from "../../application/usecase/request/get-request.usecase";
+import getDetailRequestUsecase from "../../application/usecase/request/get-detail-request.usecase";
 const requestResolver = {
     Query: {
         getRequests: () => getRequestUsecase.execute(),
-        getStats: () => getStatsUsecase.execute()
+        getStats: () => getStatsUsecase.execute(),
+        getDetailRequest: (_: any, { id }: { id: string }) => getDetailRequestUsecase.execute(id)
     },
 
     Mutation: {
@@ -33,6 +35,7 @@ const requestResolver = {
                 throw new Error(error.message)
             }
         },
+
     },
 };
 

@@ -47,7 +47,7 @@ const requestSchema = buildSchema(`
 
   type Query {
     getRequests: [Request!]!
-    request(id: Int!): Request
+    getDetailRequest(id: String!): Request
     getStats: RequestStats!
   }
 

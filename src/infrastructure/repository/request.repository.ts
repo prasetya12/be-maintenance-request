@@ -98,6 +98,22 @@ class RequestRepository {
         return urgentRequests;
     }
 
+    async getDetailRequest(id: string) {
+        const response = await prisma.request.findFirst({
+            where: {
+                id: id
+            },
+            include: {
+                status: true,
+                urgency: true,
+            },
+        })
+
+        console.log(response)
+
+        return response
+    }
+
 
 }
 
