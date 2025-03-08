@@ -14,7 +14,7 @@
 
 ```sh
 git clone https://github.com/prasetya12/be-maintenance-request
-cd your-repo
+cd be-maintenance-request
 ```
 
 ### 2️⃣ Install Dependencies
